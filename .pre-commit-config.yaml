@@ -1,10 +1,25 @@
 repos:
--   repo: https://github.com/ambv/black
-    rev: 21.9b0
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
     hooks:
-    - id: black
-      language_version: python3.9
--   repo: https://gitlab.com/pycqa/flake8
-    rev: 4.0.1
+      - id: check-ast
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+  - repo: https://github.com/psf/black
+    rev: 22.10.0
     hooks:
-    - id: flake8
+      - id: black
+  - repo: https://github.com/pycqa/flake8
+    rev: 5.0.4
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.5.1
+    files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
+    hooks:
+      - id: prettier
